@@ -19,7 +19,7 @@ const canInitSupabaseClient = () => {
     return false;
   }
 };
-const isSupabaseConnected = canInitSupabaseClient();
+const isSupabaseConnected = true; // canInitSupabaseClient();
 
 export default function HeaderLoggedOut() {
 
@@ -32,8 +32,8 @@ export default function HeaderLoggedOut() {
       <ButtonOnlineDocumentation/>
       </div>
       <div className=".w-2/5 flex space-x-10 items-center p-5 text-sm justify-end">
-      {isSupabaseConnected && <ButtonRegister/>}
-      {isSupabaseConnected && <ButtonLogin/>}
+      <ButtonRegister/>
+      <ButtonLogin/>
     </div>
   </nav>
   );

@@ -20,7 +20,7 @@ const canInitSupabaseClient = () => {
     return false;
   }
 };
-const isSupabaseConnected = canInitSupabaseClient();
+const isSupabaseConnected = true; // canInitSupabaseClient();
 
 export default function HeaderLoggedIn() {
 
@@ -32,7 +32,7 @@ export default function HeaderLoggedIn() {
   <ButtonOnlineDocumentation/>
   </div>
   <div className=".w-2/5 flex space-x-10 items-center p-5 text-sm justify-end">
-  {isSupabaseConnected && <ButtonLogin/>}
+  <ButtonLogin/>
 </div>
 </nav>
   );
