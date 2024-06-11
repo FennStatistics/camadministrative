@@ -12,6 +12,7 @@ import Link from "next/link";
 
 import RegisterForm from "./actions";
 
+
 export default async function RegisterPage() {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
