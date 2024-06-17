@@ -55,7 +55,7 @@ export default function differentVersions() {
             you could)
           </li>
           <li>
-            <span className="font-bold">Free and open source</span> - all our
+            <span className="font-bold">Free and open source for non-commercial use</span> - all our
             tools have MIT license, you can use the CAM tools in any project
             (just don't forget to quote us)
           </li>
@@ -79,7 +79,7 @@ export default function differentVersions() {
           <li>
             <span className="font-bold">administrative panel</span> - for
             setting up studies with different designs (please use a Laptop or a
-            desktop computer to access this page)
+            desktop computer to set up a study)
           </li>
         </ul>
         <div className="text-sm font-semibold mt-5 mb-5">
@@ -94,10 +94,10 @@ export default function differentVersions() {
     return (
       <div>
         <div className="grid grid-cols-2 gap-2 place-items-center">
-          <div className="md:text-2xl sd:text-sm font-semibold">
+          <div className="text-2xl font-semibold">
             "Cognitive Affective Map" tools to easily create and integrate CAM
             studies into online experiments.
-            <p className="md:text-xl sd:text-sm font-light text-gray-600">
+            <p className="text-xl font-light text-gray-600">
               {" "}
               Build fully functional and accessible "Cognitive Affective Map"
               experiments - faster than ever!{" "}
@@ -121,7 +121,7 @@ export default function differentVersions() {
             you could)
           </li>
           <li>
-            <span className="font-bold">Free and open source</span> - all our
+            <span className="font-bold">Free and open source for non-commercial use</span> - all our
             tools have MIT license, you can use the CAM tools in any project
             (just don't forget to quote us)
           </li>
@@ -131,16 +131,16 @@ export default function differentVersions() {
           </li>
         </ul>
 
-        <div className="grid grid-cols-2 gap-10 place-items-center mx-40">
-          <div className="md:text-xl sm:text-sm font-semibold">
+        <div className="grid grid-cols-2 gap-10 place-items-center mx-40 mt-5">
+          <div className="text-xl font-semibold">
             For further information, please read the information page:
-            <p className="md:w-1/2 sd:w-full mt-3">
+            <p className="w-1/2 mt-3">
               <ButtonInformation />
             </p>
           </div>
-          <div className="md:text-xl sm:text-sm font-semibold">
+          <div className="text-xl font-semibold">
             If you just want to get started, please read the get started page:
-            <p className="md:w-1/2 sd:w-full mt-3">
+            <p className="w-1/2 mt-3">
               <ButtonGetStarted />
             </p>
           </div>
