@@ -16,7 +16,7 @@ export default async function InformationPage() {
     <main className="flex flex-col gap-5 max-w-6xl px-3 text-xl animate-in">
                  {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       <div className="text-2xl font-semibold text-center">
-        Thank you for checking out our Cognitive Affective Map tools!
+        Thank you for checking out our "Cognitive Affective Map" tools!
       </div>
 
       <div className="mb-5">
@@ -32,7 +32,7 @@ export default async function InformationPage() {
           <Image src={logoCAM.src} width={300} height={300} alt="CAM logo" />
         </div>
         <div className="text-xl font-semibold text-left">
-          Cognitive-Affective Maps (CAM) tools encompass the following tools:
+          Cognitive-Affective Map (CAM) tools encompass the following tools:
           <p className="text-xl font-light">
             <ul className="list-disc space-y-2 px-14 mt-5">
               <li>
@@ -49,7 +49,7 @@ export default async function InformationPage() {
               </li>
             </ul>
             <p className="mt-5">
-              For detailed information and how to register have a look in our
+            For more details and information on how to register, have a look at our
               <Link
                 href="https://osf.io/q5hj4/"
                 className="px-1 text-blue-500 hover:underline"
@@ -68,8 +68,7 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          It is possible to set up CAM studies using a visual interface and all
-          kind of adjustments are possible (see
+          It is possible to set up CAM studies using a visual interface in which all kind of adjustments are possible (see
           <Link
             href="https://camtools-documentation.readthedocs.io/en/master/Cognitive-Affective%20Map%20extended%20logic/#define-your-config-file"
             className="px-1 text-blue-500 hover:underline"
@@ -92,7 +91,7 @@ export default async function InformationPage() {
           ).
         </li>
         <li>
-          Using the visual interface of the CAM-App data can be easily
+          Using the visual interface of the CAM-App, data can be easily
           summarized and analyzed (select
           <Link
             href="https://camtools-documentation.readthedocs.io/en/master/CAM-App/"
@@ -111,13 +110,13 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          There are no limits: If it's possible on a web page, you can
+          There are no limits: Everything, which is possible on a browser, you could
           theoretically implement it in the C.A.M.E.L. software.
         </li>
         <li>
           Set up the C.A.M.E.L. software on your own server to have full
-          control. Here it is possible to implement even more advanced features
-          (for inspiration see future features sections in the documentation).
+          control. Here, it is possible to implement even more advanced features
+          (for inspiration, see future features sections in the documentation).
         </li>
         <li>
           If you want to extend the features of the CAM-App you can freely
