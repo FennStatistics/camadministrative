@@ -7,6 +7,8 @@ import ButtonGetStarted from "./Buttons/GetStarted";
 import ButtonRegister from "./Buttons/Register";
 import ButtonLogin from "./Buttons/Login";
 
+import ButtonOnlineDocumentation from "./Buttons/OnlineDocumentation";
+
 
 const canInitSupabaseClient = () => {
   // This function is just for the interactive tutorial.
@@ -27,25 +29,29 @@ export default async function Header() {
   const { data, error } = await supabase.auth.getUser();
 
   return !error ? (
-    <nav className="w-full flex border-b h-16 mb-10 max-w-6xl">
-    <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-      aaa
-      bbb
-      ccc
-      ddd
-      {isSupabaseConnected && <ButtonLogin/>}
-    </div>
-  </nav>
+    // Logged in
+<nav className="w-full flex border-b h-16 mb-10 max-w-6xl">
+<div className="w-full flex space-x-10 items-center p-5 text-sm justify-start">
+  aaa
+  bbb
+  <ButtonOnlineDocumentation/>
+  </div>
+  <div className=".w-2/5 flex space-x-10 items-center p-5 text-sm justify-end">
+  <ButtonLogin/>
+</div>
+</nav>
   ) : (
+    // Logged out
     <nav className="w-full flex border-b h-16 mb-10 max-w-6xl">
     <div className="w-full flex space-x-10 items-center p-5 text-sm justify-start">
       <ButtonHome/>
       <ButtonInformation/>
       <ButtonGetStarted/>
+      <ButtonOnlineDocumentation/>
       </div>
-      <div className="w-full flex space-x-10 items-center p-5 text-sm justify-end">
-      {isSupabaseConnected && <ButtonRegister/>}
-      {isSupabaseConnected && <ButtonLogin/>}
+      <div className=".w-2/5 flex space-x-10 items-center p-5 text-sm justify-end">
+      <ButtonRegister/>
+      <ButtonLogin/>
     </div>
   </nav>
   );

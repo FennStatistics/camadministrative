@@ -9,5 +9,10 @@ export default function LikeButton() {
     setLikes(likes + 1);
   }
  
-  return <button onClick={handleClick}>Like ({likes})</button>;
+  return (
+    <div>
+ <button onClick={handleClick}>Like ({likes})</button>;
+<p>blabla</p>
+</div>
+  )
 }

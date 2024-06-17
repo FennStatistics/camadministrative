@@ -1,26 +1,9 @@
 "use client";
 
-import { useMediaQuery } from 'react-responsive'
-
-
 import { useState, useEffect } from "react";
-import { login } from './actions'
+import { login } from "./actions";
 
 export default function LoginForm() {
-
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
-  })
-  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
-  
-  const isMobile = useMediaQuery({
-    query: '(max-width: 700px)'
-  })
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -40,7 +23,6 @@ export default function LoginForm() {
   // Validate form
   const validateForm = () => {
     let errors: { email?: string; password?: string } = {};
-
 
     if (!email) {
       console.log("Email is required.");
@@ -76,18 +58,14 @@ export default function LoginForm() {
 
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md bg-gray-200 border rounded-lg flex flex-col p-3">
-                    <div className="bg-red-500">
-      <h1>Device Test!</h1>
-      {isMobile && <p>You are a MOBILE</p>}
-      {isDesktopOrLaptop && <p>You are a desktop or laptop</p>}
-      {isBigScreen && <p>You have a huge screen</p>}
-      {isTabletOrMobile && <p>You are a tablet or mobile phone</p>}
-      <p>Your are in {isPortrait ? 'portrait' : 'landscape'} orientation</p>
-      {isRetina && <p>You are retina</p>}
-    </div>
-      <label htmlFor="Email" className="block font-medium leading-6 text-gray-900">Email address:</label>
+      <label
+        htmlFor="Email"
+        className="block font-medium leading-6 text-gray-900"
+      >
+        Email address:
+      </label>
       <input
-        id="email" 
+        id="email"
         name="email"
         className="w-4/5"
         placeholder="Email"
@@ -96,23 +74,32 @@ export default function LoginForm() {
       />
       {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-      <label htmlFor="Password" className="block font-medium leading-6 text-gray-900 mt-5">Password:</label>
+      <label
+        htmlFor="Password"
+        className="block font-medium leading-6 text-gray-900 mt-5"
+      >
+        Password:
+      </label>
       <input
-      id="password" 
-      name="password"
-      className="w-4/5"
+        id="password"
+        name="password"
+        className="w-4/5"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         type="password"
       />
-      {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+      {errors.password && (
+        <p className="text-red-500 text-sm">{errors.password}</p>
+      )}
 
-
-      <button disabled={!isFormValid} formAction={login} className="py-2 mt-4 rounded-md bg-gray-400 hover:bg-gray-600 disabled:bg-red-200 text-xl">
+      <button
+        disabled={!isFormValid}
+        formAction={login}
+        className="py-2 mt-4 rounded-md bg-gray-400 hover:bg-gray-600 disabled:bg-red-200 text-xl"
+      >
         Log in
-      </button> 
+      </button>
     </div>
-    
   );
 }
