@@ -13,13 +13,22 @@ import ButtonGetStarted from "@/components/Buttons/GetStarted";
 import HeaderLoggedIn from '@/components/HeaderLoggedIn'
 import HeaderLoggedOut from '@/components/HeaderLoggedOut'
 
-import { isMobile, isBrowser, BrowserView, MobileView } from 'react-device-detect';
 /*
+import { isMobile, isBrowser, BrowserView, MobileView } from 'react-device-detect';
+
 import { redirect } from 'next/navigation'
   console.log("isMobile, isBrowser", isMobile, isBrowser)
 if(isMobile){
   redirect('/notes')
 }
+    console.log("isMobile, isBrowser", isMobile, isBrowser)
+            <BrowserView>
+  <h1>This is rendered only in browser</h1>
+</BrowserView>
+<MobileView>
+  <h1>This is rendered only on mobile</h1>
+</MobileView>
+
 */
 
 export default async function Index() {
@@ -28,7 +37,6 @@ export default async function Index() {
 
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
-  console.log("isMobile, isBrowser", isMobile, isBrowser)
     /*
 
       const canInitSupabaseClient = () => {
@@ -62,12 +70,6 @@ export default async function Index() {
 
   return (
       <main className="flex flex-col gap-5 md:max-w-6xl sm:max-w-xl px-3 md:text-xl sm:text-sm animate-in">
-        <BrowserView>
-  <h1>This is rendered only in <b>browser</b></h1>
-</BrowserView>
-<MobileView>
-  <h1>This is rendered only on <b>mobile</b></h1>
-</MobileView>
            {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
         <div className="grid grid-cols-2 gap-2 place-items-center">
           <div className="md:text-2xl sd:text-sm font-semibold">
