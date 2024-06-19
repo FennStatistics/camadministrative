@@ -12,7 +12,7 @@ export default async function Index() {
   const { data, error } = await supabase.auth.getUser();
 
   return (
-    <main className="flex flex-col gap-5 md:max-w-6xl sm:max-w-xl px-3 md:text-xl sm:text-sm animate-in">
+    <main className="flex flex-col gap-5 max-w-6xl px-3 text-xl animate-in">
       {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       <BrowserMobile />
     </main>

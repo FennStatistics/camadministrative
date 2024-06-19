@@ -11,19 +11,13 @@ export default async function PrivatePage() {
   console.log("error private page", !data?.user);
 
   if (error || !data?.user) {
-    // redirect('/login')
+    return redirect("/error");
+  }else{
     return (
-      <div className="animate-in w-full max-w-6xl">
+      <main className="w-full max-w-6xl text-xl animate-in">
         {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
-        <p>You are NOT logged in</p>
-      </div>
+        <p>You are logged in and your email is: {data.user.email} and you are on the dashboard page.</p>
+      </main>
     );
   }
-
-  return (
-    <main className="w-full max-w-6xl text-xl animate-in">
-      {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
-      <p>You are logged in and your email is: {data.user.email}</p>
-    </main>
-  );
 }

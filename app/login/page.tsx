@@ -1,5 +1,3 @@
-import { login, signup } from './actions'
-
 import { createClient } from "@/utils/supabase/server";
 
 import HeaderLoggedIn from '@/components/HeaderLoggedIn'
