@@ -24,6 +24,6 @@ export async function login(formData: FormData) {
     //revalidatePath('/', 'page')
     revalidatePath('/', 'layout')
     //revalidatePath('/prive/post/[slug]', 'layout')
-    redirect('/private')
+    redirect('/dashboard')
   }
 }

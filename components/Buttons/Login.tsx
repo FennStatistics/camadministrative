@@ -14,7 +14,7 @@ export default async function ButtonLogin() {
 
     const supabase = createClient();
     await supabase.auth.signOut();
-    return redirect("/private");
+    return redirect("/");
   };
   
 
