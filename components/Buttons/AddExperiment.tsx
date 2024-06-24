@@ -100,7 +100,7 @@ export default function ButtonAddExperiment() {
     <>
       <Button
         onClick={handleOpen}
-        className="py-3 px-6 flex rounded-xl bg-blue-400 hover:bg-blue-800 md:text-xl sm:text-sm justify-center items-center"
+        className="py-3 px-6 flex rounded-xl bg-blue-500 hover:bg-blue-900 md:text-xl sm:text-sm justify-center items-center"
         placeholder="Button open placeholder"
       >
         Add Experiment

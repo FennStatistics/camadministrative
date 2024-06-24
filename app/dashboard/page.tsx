@@ -9,6 +9,8 @@ import Link from "next/link";
 
 import ButtonAddExperiment from "@/components/Buttons/AddExperiment";
 
+import ButtonLinkForParticipants from "@/components/Buttons/LinkForParticipants";
+
 export default async function PrivatePage() {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
@@ -54,26 +56,26 @@ export default async function PrivatePage() {
                   {study.namestudy}
                 </td>
                 <td className="py-5 border border-gray-300 px-5">
-                  {(new Date(study.creation_date).toLocaleDateString ()) + " ("  + (new Date(study.creation_date).toLocaleTimeString()) + ")"}
-
+                  {new Date(study.creation_date).toLocaleDateString() +
+                    " (" +
+                    new Date(study.creation_date).toLocaleTimeString() +
+                    ")"}
                 </td>
                 <td className="py-5 border border-gray-300 px-5">
                   {"Placeholder" + index}
                 </td>
-                <td className="py-5 border border-gray-300 px-5">
-                  <Link
-                    href={"/expermiment?id=" + index}
-                    className="px-1 text-blue-500 hover:underline"
-                  >
-                    Link Participants
-                  </Link>
+
+                <td className="py-5 border border-gray-300 text-center">
+                  <ButtonLinkForParticipants namestudy={study.namestudy} />
                 </td>
-                <td className="py-5 border border-gray-300">
+                <td className="py-5 border border-gray-300 text-center">
                   <Link
                     href={"/study/" + study.namestudy}
                     className="px-1 text-blue-500 hover:underline"
                   >
-                    Enter Experiment
+                    <button className="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-900">
+                      Enter Experiment
+                    </button>
                   </Link>
                 </td>
               </tr>
