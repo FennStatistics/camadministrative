@@ -26,7 +26,7 @@ export default async function SingleStudy({
     const { data: collectedCAMs } = await supabase
       .from("collectedcams")
       .select()
-      .eq("namestudy", params.id);
+      .eq("namestudy", decodeURIComponent(params.id));
 
     var arrayNumConcepts: number[] = [];
     var arrayAvgValence: number[] = [];
