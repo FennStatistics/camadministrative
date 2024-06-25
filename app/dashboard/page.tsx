@@ -16,12 +16,35 @@ export default async function PrivatePage() {
   const { data, error } = await supabase.auth.getUser();
 
   console.log("error private page", !data?.user);
+  console.log("data private page", data?.user?.email);
 
   if (error || !data?.user) {
     return redirect("/error");
   } else {
     // get data from the database
-    const { data: studies } = await supabase.from("studies").select();
+    const { data: studies } = await supabase.from("studies").select().eq("email", data.user.email);
+
+    const { data: collectedCAMs } = await supabase
+      .from("collectedcams")
+      .select('namestudy')
+
+    const countNamestudy = (arr: any[] | null) => {
+      if (arr === null) {
+        return {};
+      }
+      return arr.reduce((acc, obj) => {
+        const key = obj.namestudy;
+        if (acc[key]) {
+          acc[key]++;
+        } else {
+          acc[key] = 1;
+        }
+        return acc;
+      }, {});
+    };
+    
+    const counts = countNamestudy(collectedCAMs);
+    // console.log(counts);
 
     return (
       <main className="w-full max-w-6xl text-xl animate-in">
@@ -61,8 +84,8 @@ export default async function PrivatePage() {
                     new Date(study.creation_date).toLocaleTimeString() +
                     ")"}
                 </td>
-                <td className="py-5 border border-gray-300 px-5">
-                  {"Placeholder" + index}
+                <td className="py-5 border border-gray-300 px-5 text-center text-xl">
+                  {counts[study.namestudy]}
                 </td>
 
                 <td className="py-5 border border-gray-300 text-center">

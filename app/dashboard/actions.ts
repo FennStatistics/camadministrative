@@ -26,7 +26,7 @@ export async function addCAMstudy( name: string, jsonConfig: JSON, jsonDefaultCA
       const { data } = await supabase.auth.getUser();
       // console.log("possible error get user information: ", error)
       const { error } = await supabase.from('studies').insert({ email: data?.user?.email, namestudy: name, redirectlink: link, defaultcam: jsonDefaultCAM, configcam: jsonConfig})
-     console.log("possible error sending data: ", error)
+     console.log("error sending data: ", error)
 
      revalidatePath('/', 'layout')
      redirect('/dashboard')

@@ -10,7 +10,7 @@ const ButtonLinkForParticipants = ({
 <button
 className="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-900"
 onClick={() => {
-  navigator.clipboard.writeText("https://camgalaxy.github.io/?link=http://localhost:3002/api/getstudy?study=" + namestudy + "&participantID=");
+  navigator.clipboard.writeText("https://camgalaxy.github.io/?link=https://camadministrative.vercel.app/api/getstudy?study=" + namestudy + "&participantID=");
   alert("Link copied to clipboard");
 }}
 >

@@ -1,8 +1,5 @@
 "use client";
 
-import { addCAMstudy } from "@/app/dashboard/actions";
-
-import { useState, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
 
 const ButtonDownloadExperiment = ({

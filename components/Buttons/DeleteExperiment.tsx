@@ -1,6 +1,6 @@
 "use client";
 
-import { addCAMstudy } from "@/app/dashboard/actions";
+import { deleteCAMstudy } from "@/app/study/[id]/actions";
 
 import { useState, useEffect } from "react";
 import {
@@ -11,7 +11,12 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 
-export default function ButtonDeleteExperiment() {
+
+const ButtonDeleteExperiment = ({
+  currentStudy,
+}: {
+  currentStudy: any;
+}) => {
   const [open, setOpen] = useState(false);
 
   const [namestudy, setNamestudy] = useState("");
@@ -31,8 +36,8 @@ export default function ButtonDeleteExperiment() {
 
     if (!namestudy) {
       errors.namestudy = "To delete the name of your study is requiered.";
-    } else if (namestudy.length < 6) {
-      errors.namestudy = "Name for CAM study must be at least 6 characters.";
+    } else if (namestudy != currentStudy) {
+      errors.namestudy = "Please provide the exact name of your study.";
     }
 
     setErrors(errors);
@@ -50,19 +55,7 @@ export default function ButtonDeleteExperiment() {
     e.preventDefault();
 
     if (isFormValid) {
-      console.log("Form submitted successfully!");
-
-      /*
-      const getFeedback = await addCAMstudy(name, json.config, json.CAM, link);
-      if (getFeedback === null) {
-        alert(
-          "Study name already exists. Please choose another name. And click again on the button to add the study."
-        );
-      }else{
-        setOpen(!open)
-      }
-    } else {
-      console.log("Form has errors. Please correct them.");      */
+      await deleteCAMstudy(currentStudy);
     }
   };
 
@@ -134,3 +127,5 @@ export default function ButtonDeleteExperiment() {
     </>
   );
 }
+
+export default ButtonDeleteExperiment;

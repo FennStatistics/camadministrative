@@ -39,22 +39,22 @@ export default async function SingleStudy({
 
     const average = (arr: any[]) => arr.reduce((p, c) => p + c, 0) / arr.length;
 
-    if(arrayDateEnd.length != 0){
-    // Convert the date strings to Date objects and find the maximum date
-    var latestDate = new Date(
-      Math.max(...arrayDateEnd.map((date) => new Date(date).getTime()))
-    );
+    if (arrayDateEnd.length != 0) {
+      // Convert the date strings to Date objects and find the maximum date
+      var latestDate = new Date(
+        Math.max(...arrayDateEnd.map((date) => new Date(date).getTime()))
+      );
 
-    // Convert the latest Date object back to a string if needed
-    var latestDateString = latestDate.toISOString();
-  }else{  
-    var latestDateString = "No data available";
-  }
+      // Convert the latest Date object back to a string if needed
+      var latestDateString = latestDate.toISOString();
+    } else {
+      var latestDateString = "No data available";
+    }
 
     return (
       <main className="w-full max-w-6xl text-xl animate-in">
         {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
-        <div className="font-bold text-2xl text-center mb-5">{params.id}</div>
+        <div className="font-bold text-2xl text-center mb-5">{decodeURIComponent(params.id)}</div>
 
         <div className="flex justify-center space-x-5 flex-row mb-5">
           <div className="flex-col flex w-64">
@@ -63,13 +63,17 @@ export default async function SingleStudy({
           </div>
           <div className="flex-col flex w-64">
             <p className="font-bold">
-              {arrayNumConcepts.length > 0 ? Math.round(average(arrayNumConcepts) * 100) / 100 : "No data available"}
+              {arrayNumConcepts.length > 0
+                ? Math.round(average(arrayNumConcepts) * 100) / 100
+                : "No data available"}
             </p>{" "}
             concepts on average have been drawn
           </div>
           <div className="flex-col flex w-64">
             <p className="font-bold">
-            {arrayAvgValence.length > 0 ? Math.round(average(arrayAvgValence) * 100) / 100 : "No data available"}
+              {arrayAvgValence.length > 0
+                ? Math.round(average(arrayAvgValence) * 100) / 100
+                : "No data available"}
             </p>{" "}
             is the mean valence of the drawn concepts
           </div>
@@ -107,7 +111,7 @@ export default async function SingleStudy({
             {collectedCAMs?.map((study, index) => (
               <tr
                 key={study.camid}
-                className={`border-y-4 border-black ${
+                className={`border-y-4 border-black text-sm h-28 ${
                   index % 2 === 0 ? "bg-gray-200" : "bg-white"
                 }`}
               >
@@ -123,30 +127,42 @@ export default async function SingleStudy({
                 <td className="py-5 border border-gray-300 px-5 text-sm">
                   {study.dateend}
                 </td>
-                <td className="py-5 border border-gray-300 px-5 text-center">
+                <td className="py-5 border border-gray-300 px-5 text-center text-lg">
                   {" "}
                   {study.datediff}
                 </td>
-                <td className="py-5 border border-gray-300 px-5 text-center">
+                <td className="py-5 border border-gray-300 px-5 text-center text-lg">
                   {" "}
                   {study.numconcepts}
                 </td>
-                <td className="py-5 border border-gray-300 text-center">
+                <td className="py-5 border border-gray-300 text-center text-lg">
                   {" "}
                   {study.numconnectors}
                 </td>
-                <td className="py-5 border border-gray-300 text-center">
-                  {" "}
+                <td
+                  className={`py-5 border border-gray-300 text-center text-lg ${
+                    study.avgvalence > 0
+                      ? "text-green-500"
+                      : study.avgvalence < 0
+                      ? "text-red-500"
+                      : "text-yellow-500"
+                  }`}
+                >
                   {study.avgvalence}
                 </td>
                 <td className="py-2 border border-gray-300">
-                <Link
-                       href={"https://camgalaxy.github.io/?ShowResearcherButtons=true&link=http://localhost:3002/api/drawstudy?study=" + params.id + "&participantID=" + study.camid}
-                      target="_blank"
+                  <Link
+                    href={
+                      "https://camgalaxy.github.io/?ShowResearcherButtons=true&link=https://camadministrative.vercel.app/api/drawstudy?study=" +
+                      params.id +
+                      "&participantID=" +
+                      study.camid
+                    }
+                    target="_blank"
                     className="text-blue-500 hover:underline"
                   >
-                    <button className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-900">
-                    draw CAM
+                    <button className="px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-900">
+                      draw CAM
                     </button>
                   </Link>
                 </td>
@@ -158,11 +174,14 @@ export default async function SingleStudy({
         <div className="flex justify-center space-x-5 flex-row mt-5">
           <div>
             {" "}
-            <ButtonDeleteExperiment />
+            <ButtonDeleteExperiment currentStudy={decodeURIComponent(params.id)} />
           </div>
           <div>
             {" "}
-            <ButtonDownloadExperiment data={collectedCAMs} namestudy={params.id} />
+            <ButtonDownloadExperiment
+              data={collectedCAMs}
+              namestudy={params.id}
+            />
           </div>
         </div>
       </main>

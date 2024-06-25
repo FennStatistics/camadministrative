@@ -81,13 +81,14 @@ export default async function GetStartedPage() {
           <div className="ml-10 w-full">
             <div className="font-bold -ml-5">Register an account</div>
             <div className="my-3">
-            <ul className="list-disc space-y-2 px-2 mt-5">
-            <li>
-              Simply using our registration form to create an account, click on:
-              <p className="md:w-1/6 sd:w-full mt-3">
-                <ButtonRegister />
-              </p>
-              </li>
+              <ul className="list-disc space-y-2 px-2 mt-5">
+                <li>
+                  Simply using our registration form to create an account, click
+                  on:
+                  <p className="md:w-1/6 sd:w-full mt-3">
+                    <ButtonRegister />
+                  </p>
+                </li>
               </ul>
             </div>
           </div>
@@ -103,9 +104,20 @@ export default async function GetStartedPage() {
           <div className="ml-10 w-full">
             <div className="font-bold -ml-5">Set up your first study</div>
             <div className="my-3">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
+              After you are logged in you can create your first study. On the
+              dashboard page you can click on "ADD EXPERIMENT", a pop-up window
+              will appear where you can (a) provide a name for your CAM study,
+              (b) set up the configuration and (c) provide a redirect link after
+              your participants have drawn the CAM. For detailed information
+              please read the
+              <Link
+                href="https://camtools-documentation.readthedocs.io/en/master/Set%20up%20study/"
+                className="pl-1 text-blue-500 hover:underline"
+                target="_blank"
+              >
+                instructions in the online documentation
+              </Link>
+              .
             </div>
           </div>
         </div>
@@ -118,11 +130,12 @@ export default async function GetStartedPage() {
           <div className="border-r-2 border-black absolute h-full left-1 md:left-20 top-2 z-10"></div>
 
           <div className="ml-10 w-full">
-          <div className="font-bold -ml-5">Collect your first data</div>
+            <div className="font-bold -ml-5">Collect your first data</div>
             <div className="my-3">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
+              After you have added your first study, you can start collecting
+              data. You can share the link to your study with your participants
+              and they can start drawing their CAMs. The data will be stored in
+              our database and can be accessed by clicking on "Enter Experiment".
             </div>
           </div>
         </div>
@@ -135,11 +148,15 @@ export default async function GetStartedPage() {
           <div className="border-r-2 border-black absolute h-full left-1 md:left-20 top-2 z-10"></div>
 
           <div className="ml-10 w-full">
-          <div className="font-bold -ml-5">Analyze your data</div>
+            <div className="font-bold -ml-5">Analyze your data</div>
             <div className="my-3">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
+          After entering a single experiment simply click on "DOWNLOAD DATA" to download your collected CAMs as a .json file. This file can be uploaded to our CAM-App for further analysis. Please read the           <Link
+            href="https://camtools-documentation.readthedocs.io/en/master/CAM-App/"
+            className="pl-1 text-blue-500 hover:underline"
+            target="_blank"
+          >
+            CAM-App online documentation
+          </Link>.
             </div>
           </div>
         </div>

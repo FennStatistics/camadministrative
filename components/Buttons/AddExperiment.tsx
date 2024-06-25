@@ -115,7 +115,7 @@ export default function ButtonAddExperiment() {
           In the following form you can add a new CAM study:
         </DialogHeader>
         <DialogBody placeholder="Dialog body placeholder" className="text-xl">
-          If this is your first time setting up a study, it is higgly
+          If this is your first time setting up a study, it is highly
           recommended to read the
           <Link
             href="https://camtools-documentation.readthedocs.io/en/master/Set%20up%20study/"
