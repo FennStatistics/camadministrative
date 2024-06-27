@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 
-import HeaderLoggedIn from '@/components/HeaderLoggedIn'
-import HeaderLoggedOut from '@/components/HeaderLoggedOut'
+import HeaderLoggedIn from "@/components/HeaderLoggedIn";
+import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 
 import Image from "next/image";
 import logoCAM from "../../public/images/logoCAM.svg";
@@ -14,7 +14,7 @@ export default async function InformationPage() {
 
   return (
     <main className="flex flex-col gap-5 max-w-6xl px-3 text-xl animate-in">
-                 {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
+      {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       <div className="text-2xl font-semibold text-center">
         Thank you for checking out our "Cognitive Affective Map" tools!
       </div>
@@ -49,7 +49,8 @@ export default async function InformationPage() {
               </li>
             </ul>
             <p className="mt-5">
-            For more details and information on how to register, have a look at our
+              For more details and information on how to register, have a look
+              at our
               <Link
                 href="https://osf.io/q5hj4/"
                 className="px-1 text-blue-500 hover:underline"
@@ -68,7 +69,8 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          It is possible to set up CAM studies using a visual interface in which all kind of adjustments are possible (see
+          It is possible to set up CAM studies using a visual interface in which
+          all kind of adjustments are possible (see
           <Link
             href="https://camtools-documentation.readthedocs.io/en/master/Cognitive-Affective%20Map%20extended%20logic/#define-your-config-file"
             className="px-1 text-blue-500 hover:underline"
@@ -110,8 +112,8 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          There are no limits: Everything, which is possible on a browser, you could
-          theoretically implement it in the C.A.M.E.L. software.
+          There are no limits: Everything, which is possible on a browser, you
+          could theoretically implement it in the C.A.M.E.L. software.
         </li>
         <li>
           Set up the C.A.M.E.L. software on your own server to have full
@@ -173,13 +175,22 @@ export default async function InformationPage() {
           <p className="text-xl font-light">
             <ul className="list-disc space-y-2 px-6 mt-3">
               <li>
-                You'll always find friendly people in our
+                You'll always find friendly people in our free and open-source
+                instant messaging [matrix]: Just 1. download, for example,
                 <Link
-                  href="https://join.slack.com/t/cognitiveaffe-um96332/shared_invite/zt-1cybwr0tf-u2PWQh4L3BP3tuxLuH4c5w"
-                  className="px-1 text-blue-500 hover:underline"
+                  href="https://element.io/"
+                  className="pl-1 text-blue-500 hover:underline"
                   target="_blank"
                 >
-                  Slack channel
+                  https://element.io/
+                </Link>
+                , 2. create an account and 3. click on the
+                <Link
+                  href="https://matrix.to/#/#cognitive-affective-maps-tools:ael-matrix-dev.uni-freiburg.de"
+                  className="pl-1 text-blue-500 hover:underline"
+                  target="_blank"
+                >
+                  invite link
                 </Link>
                 . We're happy to help!
               </li>
