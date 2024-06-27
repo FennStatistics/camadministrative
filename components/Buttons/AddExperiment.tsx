@@ -41,6 +41,10 @@ export default function ButtonAddExperiment() {
       errors.name = "Name for CAM study is required.";
     } else if (name.length < 6) {
       errors.name = "Name for CAM study must be at least 6 characters.";
+    } else if (/\s/.test(name)) {
+      errors.name = "Name for CAM study should not contain any whitespace.";
+    } else if (/[^a-zA-Z0-9_]/.test(name)) {
+      errors.name = "Name for CAM study should not contain special characters (only letters and numbers).";
     }
 
     if (!jsonContent) {
@@ -86,7 +90,7 @@ export default function ButtonAddExperiment() {
       const getFeedback = await addCAMstudy(name, json.config, json.CAM, link);
       if (getFeedback === null) {
         alert(
-          "Study name already exists. Please choose another name. And click again on the button to add the study."
+          "Study name already exists (maybe used by another researcher). Please choose another name. And click again on the button to add the study."
         );
       }else{
         setOpen(!open)

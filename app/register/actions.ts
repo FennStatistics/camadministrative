@@ -18,8 +18,6 @@ export async function signup(email: string, password: string, affiliation: strin
     if(researchersExists != undefined && researchersExists?.length == 0){
       console.log("researcher not exists")
 
-      await supabase.from('researcher').insert({ email: email, affiliation: affiliation, emailupdates: updates})
-
       const data_sent = {
         email: email as string,
         password: password as string,
@@ -32,6 +30,9 @@ export async function signup(email: string, password: string, affiliation: strin
       if (error) {
         redirect('/error')
       }else{
+        // add to the researcher table
+        await supabase.from('researcher').insert({ email: email, affiliation: affiliation, emailupdates: updates})
+
         revalidatePath('/', 'layout')
         redirect('/success')
       }

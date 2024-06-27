@@ -26,7 +26,7 @@ export default async function SingleStudy({
     const { data: collectedCAMs } = await supabase
       .from("collectedcams")
       .select()
-      .eq("namestudy", decodeURIComponent(params.id));
+      .eq("namestudy", params.id);
 
     var arrayNumConcepts: number[] = [];
     var arrayAvgValence: number[] = [];
@@ -51,10 +51,18 @@ export default async function SingleStudy({
       var latestDateString = "No data available";
     }
 
+    const { data: studyDataConfig } = await supabase
+      .from("studies")
+      .select()
+      .eq("namestudy", params.id)
+      .select("configcam");
+
+    var configcam = studyDataConfig?.[0]?.configcam;
+
     return (
       <main className="w-full max-w-6xl text-xl animate-in">
         {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
-        <div className="font-bold text-2xl text-center mb-5">{decodeURIComponent(params.id)}</div>
+        <div className="font-bold text-2xl text-center mb-5">{params.id}</div>
 
         <div className="flex justify-center space-x-5 flex-row mb-5">
           <div className="flex-col flex w-64">
@@ -174,7 +182,7 @@ export default async function SingleStudy({
         <div className="flex justify-center space-x-5 flex-row mt-5">
           <div>
             {" "}
-            <ButtonDeleteExperiment currentStudy={decodeURIComponent(params.id)} />
+            <ButtonDeleteExperiment currentStudy={params.id} />
           </div>
           <div>
             {" "}
@@ -184,6 +192,68 @@ export default async function SingleStudy({
             />
           </div>
         </div>
+
+        <div className="text-xl font-semibold text-left mt-5">
+          Your study configuration:
+        </div>
+
+        <div className="text-xl font-medium px-3">
+          ... regarding general settings:
+        </div>
+        <ul className="list-disc space-y-2 px-8">
+          <li>Your choosen language is: {configcam?.setLanguage}</li>
+          <li>
+            You set the study to fullscreen mode and collect paradata (defocus
+            events): {configcam?.fullScreen ? "Yes" : "No"}
+          </li>
+          <li>
+            You set the spotlight feature to move the screen:{" "}
+            {configcam?.cameraFeature ? "Yes" : "No"}
+          </li>
+        </ul>
+
+        <div className="text-xl font-medium px-3 mt-2">
+          ... regarding the concepts:
+        </div>
+        <ul className="list-disc space-y-2 px-8">
+          <li>
+            Number of concepts a participant needs to draw:{" "}
+            {configcam?.ConNumNodes}
+          </li>
+          <li>
+            Maximum number of words for each concept:{" "}
+            {configcam?.MaxLengthWords}
+          </li>
+          <li>
+            Maximum length of characters for each concept:{" "}
+            {configcam?.MaxLengthChars}
+          </li>
+          <li>
+            Possibility to draw ambivalent concepts:{" "}
+            {configcam?.hideAmbivalent ? "No" : "Yes"}
+          </li>
+        </ul>
+
+        <div className="text-xl font-medium px-3 mt-2">
+          ... regarding the connections:
+        </div>
+        <ul className="list-disc space-y-2 px-8">
+          <li>
+            Possibility to draw arrows to assign a directional influence:{" "}
+            {configcam?.hideArrows ? "No" : "Yes"}
+          </li>
+          <ul className="list-disc space-y-2 px-10">
+            <li>
+              The default drawn connection is bidirectional:{" "}
+              {configcam?.BidirectionalDefault ? "Yes" : "No"}
+            </li>
+          </ul>
+          <li>
+            Possibility to draw only supporting connections:{" "}
+            {configcam?.showOnlyPosSlid ? "Yes" : "No"}
+          </li>
+        </ul>
+        <div></div>
       </main>
     );
   }
