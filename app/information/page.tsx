@@ -186,7 +186,7 @@ export default async function InformationPage() {
                 </Link>
                 , 2. create an account and 3. click on the
                 <Link
-                  href="https://matrix.to/#/#cognitive-affective-maps-tools:ael-matrix-dev.uni-freiburg.de"
+                  href="https://matrix.to/#/#cognitive-affective-maps:matrix.uni-freiburg.de"
                   className="pl-1 text-blue-500 hover:underline"
                   target="_blank"
                 >
