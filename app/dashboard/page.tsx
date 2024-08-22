@@ -63,7 +63,7 @@ export default async function PrivatePage() {
                 Link for Participants
               </th>
               <th className="border border-gray-300 px-2 py-2">
-                Enter Study
+                Enter
               </th>
             </tr>
           </thead>
@@ -97,7 +97,7 @@ export default async function PrivatePage() {
                     className="px-1 text-blue-500 hover:underline"
                   >
                     <button className="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-900">
-                      Enter Experiment
+                      Enter Study
                     </button>
                   </Link>
                 </td>
