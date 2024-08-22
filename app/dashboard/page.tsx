@@ -63,7 +63,7 @@ export default async function PrivatePage() {
                 Link for Participants
               </th>
               <th className="border border-gray-300 px-2 py-2">
-                Enter Experiment
+                Enter Study
               </th>
             </tr>
           </thead>

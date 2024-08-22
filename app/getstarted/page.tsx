@@ -40,13 +40,13 @@ export default async function GetStartedPage() {
                   <span className="font-bold">Data Collection</span> - Use our
                   developed{" "}
                   <Link
-                    href="https://camgalaxy.github.io/"
+                    href="https://camgalaxy.github.io/?external=true"
                     className="px-1 text-blue-500 hover:underline"
                     target="_blank"
                   >
-                    Cognitive-Affective Map extended logic (C.A.M.E.L.)
+                    Data Collection Tool
                   </Link>{" "}
-                  software package that enable participants to draw CAMs. It is
+                  that enable participants to draw CAMs. It is
                   constructed to support large-scale online-studies to gather
                   CAM data of many participants.
                 </li>
@@ -58,7 +58,7 @@ export default async function GetStartedPage() {
                     className="px-1 text-blue-500 hover:underline"
                     target="_blank"
                   >
-                    CAM-App
+                    Data Analysis Tool
                   </Link>
                   to analyze the resulting data, whereby you are guided within
                   every implemented module. The single modules allows you to
@@ -150,12 +150,12 @@ export default async function GetStartedPage() {
           <div className="ml-10 w-full">
             <div className="font-bold -ml-5">Analyze your data</div>
             <div className="my-3">
-          After entering a single experiment simply click on "DOWNLOAD DATA" to download your collected CAMs as a .json file. This file can be uploaded to our CAM-App for further analysis. Please read the           <Link
-            href="https://camtools-documentation.readthedocs.io/en/master/CAM-App/"
+          After entering a single experiment simply click on "DOWNLOAD DATA" to download your collected CAMs as a .json file. This file can be uploaded to our Data Analysis Tool for further analysis. Please read the           <Link
+            href="https://camtools-documentation.readthedocs.io/en/master/Data%20Analysis%20Tool/"
             className="pl-1 text-blue-500 hover:underline"
             target="_blank"
           >
-            CAM-App online documentation
+            Data Analysis Tool online documentation
           </Link>.
             </div>
           </div>
