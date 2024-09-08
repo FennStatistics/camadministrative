@@ -218,11 +218,11 @@ export default async function SingleStudy({
         <ul className="list-disc space-y-2 px-8">
           <li>
             Number of concepts a participant needs to draw:{" "}
-            {configcam?.ConNumNodes}
+            {configcam?.MinNumNodes}
           </li>
           <li>
             Maximum number of words for each concept:{" "}
-            {configcam?.MaxLengthWords}
+            {configcam?.MaxNumWords}
           </li>
           <li>
             Maximum length of characters for each concept:{" "}
@@ -230,7 +230,7 @@ export default async function SingleStudy({
           </li>
           <li>
             Possibility to draw ambivalent concepts:{" "}
-            {configcam?.hideAmbivalent ? "No" : "Yes"}
+            {configcam?.enableAmbivalent ? "No" : "Yes"}
           </li>
         </ul>
 
@@ -240,7 +240,7 @@ export default async function SingleStudy({
         <ul className="list-disc space-y-2 px-8">
           <li>
             Possibility to draw arrows to assign a directional influence:{" "}
-            {configcam?.hideArrows ? "No" : "Yes"}
+            {configcam?.enableArrows ? "No" : "Yes"}
           </li>
           <ul className="list-disc space-y-2 px-10">
             <li>
@@ -250,7 +250,7 @@ export default async function SingleStudy({
           </ul>
           <li>
             Possibility to draw only supporting connections:{" "}
-            {configcam?.showOnlyPosSlid ? "Yes" : "No"}
+            {configcam?.OnlyStraightCon ? "Yes" : "No"}
           </li>
         </ul>
         <div></div>

@@ -70,7 +70,7 @@ export default async function GetStartedPage() {
             </div>
           </div>
         </div>
-
+<br></br>
         <div className="flex items-center relative">
           <div className="hidden md:block w-32">
             <div className="font-bold italic">Step 2</div>
@@ -93,7 +93,7 @@ export default async function GetStartedPage() {
             </div>
           </div>
         </div>
-
+        <br></br>
         <div className="flex items-center relative">
           <div className="hidden md:block w-32">
             <div className="font-bold italic">Step 3</div>
@@ -121,7 +121,7 @@ export default async function GetStartedPage() {
             </div>
           </div>
         </div>
-
+        <br></br>
         <div className="flex items-center relative">
           <div className="hidden md:block w-32">
             <div className="font-bold italic">Step 4</div>
@@ -139,7 +139,7 @@ export default async function GetStartedPage() {
             </div>
           </div>
         </div>
-
+        <br></br>
         <div className="flex items-center relative">
           <div className="hidden md:block w-32">
             <div className="font-bold italic">Step 5</div>
