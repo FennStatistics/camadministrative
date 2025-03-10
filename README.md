@@ -25,3 +25,9 @@ This software has been developed by:
 To cite this software, please reference our article:
 
 > Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P., & Kiesel, A. (under review). _Cognitive-Affective Maps Extended Logic: Proposing Tools to Collect and Analyze Attitudes and Belief Systems._
+
+
+
+# Developed Cognitive-Affective Map tools
+
+Our developed software package "Cognitive-Affective Maps <i>extended logic</i>" can be found on GitHub: <a href="https://github.com/CAM-E-L" target="_blank">https://github.com/CAM-E-L</a>
