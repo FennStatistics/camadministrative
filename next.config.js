@@ -5,14 +5,6 @@
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    async rewrites() {
-        return [
-            {
-                source: '/CAMEL',
-                destination: 'https://camgalaxy.github.io/'
-            },
-        ];
-    },
     async headers() {
         return [
             {
@@ -30,3 +22,15 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+
+/*
+    async rewrites() {
+        return [
+            {
+                source: '/CAMEL',
+                destination: 'https://camgalaxy.github.io/'
+            },
+        ];
+    },
+*/

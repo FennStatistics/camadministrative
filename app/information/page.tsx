@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 
-import HeaderLoggedIn from '@/components/HeaderLoggedIn'
-import HeaderLoggedOut from '@/components/HeaderLoggedOut'
+import HeaderLoggedIn from "@/components/HeaderLoggedIn";
+import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 
 import Image from "next/image";
 import logoCAM from "../../public/images/logoCAM.svg";
@@ -11,12 +11,12 @@ import Link from "next/link";
 export default async function InformationPage() {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
-
   return (
     <main className="flex flex-col gap-5 max-w-6xl px-3 text-xl animate-in">
-                 {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
+      {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       <div className="text-2xl font-semibold text-center">
-        Thank you for checking out our Cognitive Affective Map tools!
+        Thank you for checking out our software package "Cognitive-Affective
+        Maps <i>extended logic</i>"!
       </div>
 
       <div className="mb-5">
@@ -32,24 +32,26 @@ export default async function InformationPage() {
           <Image src={logoCAM.src} width={300} height={300} alt="CAM logo" />
         </div>
         <div className="text-xl font-semibold text-left">
-          Cognitive-Affective Maps (CAM) tools encompass the following tools:
+          The software package "Cognitive-Affective Maps <i>extended logic</i>"
+          encompass the following tools:
           <p className="text-xl font-light">
             <ul className="list-disc space-y-2 px-14 mt-5">
               <li>
-                <span className="font-bold">data collection</span> -
-                Cognitive-Affective Map extended logic (C.A.M.E.L.)
+                <span className="font-bold">Data Collection Tool</span> -
+                configure CAM studies and collect CAMs
               </li>
               <li>
-                <span className="font-bold">data analysis</span> - CAM-App
-                (Shiny)
+                <span className="font-bold">Data Analysis Tool</span> -
+                application (Shiny) to analyze collected CAM data
               </li>
               <li>
-                <span className="font-bold">administrative panel</span> - for
+                <span className="font-bold">Administrative Panel</span> -
                 setting up studies with different designs (you are currently on)
               </li>
             </ul>
             <p className="mt-5">
-              For detailed information and how to register have a look in our
+              For more details and information on how to register, have a look
+              at our
               <Link
                 href="https://osf.io/q5hj4/"
                 className="px-1 text-blue-500 hover:underline"
@@ -68,10 +70,10 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          It is possible to set up CAM studies using a visual interface and all
-          kind of adjustments are possible (see
+          It is possible to set up CAM studies using a visual interface in which
+          all kind of adjustments are possible (see
           <Link
-            href="https://camtools-documentation.readthedocs.io/en/master/Cognitive-Affective%20Map%20extended%20logic/#define-your-config-file"
+            href="https://camtools-documentation.readthedocs.io/en/master/Data%20Collection%20Tool/#define-your-config-file"
             className="px-1 text-blue-500 hover:underline"
             target="_blank"
           >
@@ -92,14 +94,14 @@ export default async function InformationPage() {
           ).
         </li>
         <li>
-          Using the visual interface of the CAM-App data can be easily
-          summarized and analyzed (select
+          Using the visual interface of the data analysis tool, data can be
+          easily omputer-assisted summarized and analyzed (select
           <Link
-            href="https://camtools-documentation.readthedocs.io/en/master/CAM-App/"
+            href="https://camtools-documentation.readthedocs.io/en/master/Data%20Analysis%20Tool/"
             className="pl-1 text-blue-500 hover:underline"
             target="_blank"
           >
-            CAM-App documentation
+            Data Analysis Tool documentation
           </Link>
           ).
         </li>
@@ -111,18 +113,18 @@ export default async function InformationPage() {
 
       <ul className="list-disc space-y-5 px-14">
         <li>
-          There are no limits: If it's possible on a web page, you can
-          theoretically implement it in the C.A.M.E.L. software.
+          There are no limits: Everything, which is possible on a browser, you
+          could theoretically implement it in the data collection tool.
         </li>
         <li>
-          Set up the C.A.M.E.L. software on your own server to have full
-          control. Here it is possible to implement even more advanced features
-          (for inspiration see future features sections in the documentation).
+          Set up the data collection tool on your own server to have full
+          control. Here, it is possible to implement even more advanced features
+          (for inspiration, see future features sections in the documentation).
         </li>
         <li>
-          If you want to extend the features of the CAM-App you can freely
-          adjust our written functions in R or write your own (check out our
-          source code).
+          If you want to extend the features of the data analysis tool you can
+          freely adjust our written functions in R/ Python or write your own
+          (check out our source code).
         </li>
       </ul>
 
@@ -174,13 +176,22 @@ export default async function InformationPage() {
           <p className="text-xl font-light">
             <ul className="list-disc space-y-2 px-6 mt-3">
               <li>
-                You'll always find friendly people in our
+                You'll always find friendly people in our free and open-source
+                instant messaging [matrix]: Just 1. download, for example,
                 <Link
-                  href="https://join.slack.com/t/cognitiveaffe-um96332/shared_invite/zt-1cybwr0tf-u2PWQh4L3BP3tuxLuH4c5w"
-                  className="px-1 text-blue-500 hover:underline"
+                  href="https://element.io/"
+                  className="pl-1 text-blue-500 hover:underline"
                   target="_blank"
                 >
-                  Slack channel
+                  https://element.io/
+                </Link>
+                , 2. create an account and 3. click on the
+                <Link
+                  href="https://matrix.to/#/#cognitive-affective-maps:matrix.uni-freiburg.de"
+                  className="pl-1 text-blue-500 hover:underline"
+                  target="_blank"
+                >
+                  invite link
                 </Link>
                 . We're happy to help!
               </li>

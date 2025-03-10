@@ -3,11 +3,12 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import { sign } from 'crypto'
 
 
 export async function login(formData: FormData) {
+  console.log("login formData", formData)
   const supabase = createClient()
-
   // type-casting here for convenience
   // in practice, you should validate your inputs
   const data = {
@@ -23,39 +24,26 @@ export async function login(formData: FormData) {
     //revalidatePath('/', 'page')
     revalidatePath('/', 'layout')
     //revalidatePath('/prive/post/[slug]', 'layout')
-    redirect('/private')
+    redirect('/dashboard')
   }
 }
 
-export async function signup(formData: FormData) {
+
+export async function resetpassword(email: string) {
+  console.log("login resetpassword data", email)
   const supabase = createClient()
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data_sent = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-    options: {
-      data: {
-        first_name: 'John',
-        age: formData.get('age') as string,
-      }
+  const { data: getUser } = await supabase.from('researcher').select('email').eq('email', email)
+  console.log("login resetpassword getUser", getUser)
+
+  if(getUser?.length == 0){
+    return null
+    }else{
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://camadministrative.vercel.app/updatepassword' // 'http://localhost:3000/updatepassword',
+      })
+      console.log("login resetpassword error", error)
+
+      return "email exists"
     }
-  }
-
-  // https://supabase.com/docs/reference/javascript/auth-signup
-
-  console.log("signup data", data_sent)
-
-  const { error } = await supabase.auth.signUp(data_sent)
-
-  console.log("signup error", error)
-
-
-  if (error) {
-    redirect('/error')
-  }
-
-  revalidatePath('/', 'layout')
-  redirect('/')
 }

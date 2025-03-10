@@ -23,7 +23,6 @@ const POST = async (req: any) => {
     if(true){
         const supabase = createClient();
         const { error } = await supabase.from('countries').insert({ id: 444, name: requestData['cam'] })
-
     }
 
     return Response.json({ message: "Post data" });
