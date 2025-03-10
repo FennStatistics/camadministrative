@@ -92,6 +92,9 @@ export default function differentVersions() {
             <ButtonOnlineDocumentation />
           </p>
         </div>
+        <div className="text-sm mt-10">
+        <span className="font-bold">🚀 Corresponding article:</span> Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P., & Kiesel, A. (under review). Cognitive-Affective Maps <i>extended logic</i>: Proposing Tools to Collect and Analyze Attitudes and Belief Systems.
+        </div>
       </div>
     );
   } else {
@@ -151,6 +154,9 @@ export default function differentVersions() {
               <ButtonGetStarted />
             </p>
           </div>
+        </div>
+        <div className="mt-10">
+        <span className="font-bold">🚀 Corresponding article:</span> Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P., & Kiesel, A. (under review). Cognitive-Affective Maps <i>extended logic</i>: Proposing Tools to Collect and Analyze Attitudes and Belief Systems.
         </div>
       </div>
     );
