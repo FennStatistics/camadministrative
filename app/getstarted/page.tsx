@@ -54,7 +54,7 @@ export default async function GetStartedPage() {
                   <span className="font-bold">Data Analysis</span> - Use our
                   developed
                   <Link
-                    href="https://fennapps.shinyapps.io/CAMtools_CAMapp/"
+                    href="https://fennapps.shinyapps.io/DataAnalysis/"
                     className="px-1 text-blue-500 hover:underline"
                     target="_blank"
                   >
