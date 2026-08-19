@@ -10,22 +10,8 @@ import ButtonLogin from "./Buttons/Login";
 import ButtonOnlineDocumentation from "./Buttons/OnlineDocumentation";
 
 
-const canInitSupabaseClient = () => {
-  // This function is just for the interactive tutorial.
-  // Feel free to remove it once you have Supabase connected.
-  try {
-    createClient();
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
-
-
-const isSupabaseConnected = canInitSupabaseClient();
-const supabase = createClient();
-
 export default async function Header() {
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return !error ? (

@@ -6,7 +6,7 @@ import HeaderLoggedIn from "@/components/HeaderLoggedIn";
 import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 
 export default async function PrivatePage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   console.log("error private page", !data?.user);
 

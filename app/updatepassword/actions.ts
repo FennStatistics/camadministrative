@@ -10,7 +10,7 @@ export async function updatePassword(password: string, accessToken: string ) {
   console.log("reset password", password)
   console.log("reset password accessToken", accessToken)
  
-  const supabase = createClient()
+  const supabase = await createClient()
 
   await supabase.auth.exchangeCodeForSession(accessToken)
   const { error } = await supabase.auth.updateUser({ password: password })

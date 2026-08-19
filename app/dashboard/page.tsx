@@ -12,7 +12,7 @@ import ButtonAddExperiment from "@/components/Buttons/AddExperiment";
 import ButtonLinkForParticipants from "@/components/Buttons/LinkForParticipants";
 
 export default async function PrivatePage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   console.log("error private page", !data?.user);

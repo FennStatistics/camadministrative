@@ -8,7 +8,7 @@ export async function deleteCAMstudy( name: string) {
 
   console.log("name", name)
 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // get all CAMids of studies to delete
   const { data: IDsCollectedcams } = await supabase.from('collectedcams').select('namestudy, camid').eq('namestudy', name).select('camid')

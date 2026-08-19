@@ -12,7 +12,7 @@ const POST = async (req: any) => {
   //console.log("requestData - nameStudy", requestData['nameStudy']);
   //console.log("requestData - cam", requestData['cam'])
 
-  const supabase = createClient();
+  const supabase = await createClient();
   // check if study name already exists
   const { data: studyNameExits } = await supabase.from('studies').select('namestudy').eq('namestudy', requestData['namestudy'])
   console.log("studyNameExits", studyNameExits)

@@ -11,7 +11,7 @@ import Link from "next/link";
 import ButtonRegister from "@/components/Buttons/Register";
 
 export default async function GetStartedPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return (

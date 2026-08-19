@@ -6,7 +6,7 @@ import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 import Link from "next/link";
 
 export default async function InformationPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return (

@@ -8,7 +8,7 @@ import LoginForm from "./loginForm";
 import ButtonForgotPassword from '@/components/Buttons/ForgotPassword'
 
 export default async function LoginPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return (

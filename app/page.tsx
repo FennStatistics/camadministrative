@@ -8,7 +8,7 @@ import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 import BrowserMobile from "./index/differentVersions";
 
 export default async function Index() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return (

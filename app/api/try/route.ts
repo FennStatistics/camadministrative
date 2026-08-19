@@ -21,7 +21,7 @@ const POST = async (req: any) => {
 
 
     if(true){
-        const supabase = createClient();
+        const supabase = await createClient();
         const { error } = await supabase.from('countries').insert({ id: 444, name: requestData['cam'] })
     }
 

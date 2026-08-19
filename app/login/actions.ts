@@ -8,7 +8,7 @@ import { sign } from 'crypto'
 
 export async function login(formData: FormData) {
   console.log("login formData", formData)
-  const supabase = createClient()
+  const supabase = await createClient()
   // type-casting here for convenience
   // in practice, you should validate your inputs
   const data = {
@@ -31,7 +31,7 @@ export async function login(formData: FormData) {
 
 export async function resetpassword(email: string) {
   console.log("login resetpassword data", email)
-  const supabase = createClient()
+  const supabase = await createClient()
 
   const { data: getUser } = await supabase.from('researcher').select('email').eq('email', email)
   console.log("login resetpassword getUser", getUser)

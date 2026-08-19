@@ -11,7 +11,7 @@ const GET = async (req: any) => {
     const searchParams = new URLSearchParams(url.searchParams);
     console.log("searchParams", searchParams.get('study'));
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     const { data: singleStudy, error } = await supabase
       .from("studies")

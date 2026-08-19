@@ -6,7 +6,7 @@ import HeaderLoggedOut from "@/components/HeaderLoggedOut";
 import RegisterForm from "./registerForm";
 
 export default async function RegisterPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
   return (

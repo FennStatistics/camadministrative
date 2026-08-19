@@ -1,5 +1,8 @@
 {
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -7,12 +10,12 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.9",
-    "@supabase/ssr": "^0.3.0",
+    "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.43.4",
     "autoprefixer": "^10.4.19",
     "dayjs": "^1.11.11",
-    "geist": "^1.2.1",
-    "next": "latest",
+    "geist": "^1.7.2",
+    "next": "16.3.1",
     "postcss": "^8.4.38",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,7 +25,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@types/node": "20.11.5",
+    "@types/node": "^24.13.3",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
     "encoding": "^0.1.13"

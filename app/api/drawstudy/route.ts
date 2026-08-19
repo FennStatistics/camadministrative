@@ -12,7 +12,7 @@ const GET = async (req: any) => {
     console.log("searchParams - study", searchParams.get('study'));
     console.log("searchParams - participantID", searchParams.get('participantID'));
 
-    const supabase = createClient();
+    const supabase = await createClient();
 
     /*
     const [singleStudyConfig, singleStudyCAM] = await Promise.all([

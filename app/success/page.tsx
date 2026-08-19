@@ -5,7 +5,7 @@ import HeaderLoggedOut from '@/components/HeaderLoggedOut'
 
 
 export default async function ErrorPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
 
     return (

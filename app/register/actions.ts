@@ -10,7 +10,7 @@ import { createClient } from '@/utils/supabase/server'
 export async function signup(email: string, password: string, affiliation: string, updates: string) {
 
   console.log("signup data", email, password, affiliation, updates)
-  const supabase = createClient()
+  const supabase = await createClient()
 
   // get all registered researchers
   const { data: researchersExists } = await supabase.from('researcher').select('email').eq('email', email)

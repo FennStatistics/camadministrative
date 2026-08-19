@@ -15,7 +15,7 @@ export default async function SingleStudy({
 }: {
   params: { id: string };
 }) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   console.log("error private page", !data?.user);
 

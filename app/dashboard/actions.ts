@@ -14,7 +14,7 @@ export async function addCAMstudy( name: string, jsonConfig: JSON, jsonDefaultCA
   console.log("jsonDefaultCAM", jsonDefaultCAM)
   console.log("link", link)
 
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // get all names of created studies
   const { data: studyNameExits } = await supabase.from('studies').select('namestudy')

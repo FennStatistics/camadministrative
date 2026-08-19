@@ -9,7 +9,7 @@ import logoCAM from "../../public/images/logoCAM.svg";
 import Link from "next/link";
 
 export default async function InformationPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   return (
     <main className="flex flex-col gap-5 max-w-6xl px-3 text-xl animate-in">
