@@ -13,8 +13,9 @@ import ButtonDownloadExperiment from "@/components/Buttons/DownloadExperiment";
 export default async function SingleStudy({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   console.log("error private page", !data?.user);
@@ -26,7 +27,7 @@ export default async function SingleStudy({
     const { data: collectedCAMs } = await supabase
       .from("collectedcams")
       .select()
-      .eq("namestudy", params.id);
+      .eq("namestudy", id);
 
     var arrayNumConcepts: number[] = [];
     var arrayAvgValence: number[] = [];
@@ -54,7 +55,7 @@ export default async function SingleStudy({
     const { data: studyDataConfig } = await supabase
       .from("studies")
       .select()
-      .eq("namestudy", params.id)
+      .eq("namestudy", id)
       .select("configcam");
 
     var configcam = studyDataConfig?.[0]?.configcam;
@@ -62,7 +63,7 @@ export default async function SingleStudy({
     return (
       <main className="w-full max-w-6xl text-xl animate-in">
         {!error ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
-        <div className="font-bold text-2xl text-center mb-5">{params.id}</div>
+        <div className="font-bold text-2xl text-center mb-5">{id}</div>
 
         <div className="flex justify-center space-x-5 flex-row mb-5">
           <div className="flex-col flex w-64">
@@ -162,7 +163,7 @@ export default async function SingleStudy({
                   <Link
                     href={
                       "https://camgalaxy.github.io/?ShowResearcherButtons=true&link=https://camadministrative.vercel.app/api/drawstudy?study=" +
-                      params.id +
+                      id +
                       "&participantID=" +
                       study.camid
                     }
@@ -182,13 +183,13 @@ export default async function SingleStudy({
         <div className="flex justify-center space-x-5 flex-row mt-5">
           <div>
             {" "}
-            <ButtonDeleteExperiment currentStudy={params.id} />
+            <ButtonDeleteExperiment currentStudy={id} />
           </div>
           <div>
             {" "}
             <ButtonDownloadExperiment
               data={collectedCAMs}
-              namestudy={params.id}
+              namestudy={id}
             />
           </div>
         </div>
