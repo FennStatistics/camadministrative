@@ -93,16 +93,16 @@ export default function differentVersions() {
           </p>
         </div>
         <div className="text-sm mt-10">
-          <p className="text-base">
-            <span className="font-bold">Corresponding article:</span>
+          <p className="text-lg leading-relaxed">
+            <span className="font-bold">Corresponding article: </span>
             Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P.,
-            & Kiesel, A. (2025).
+            & Kiesel, A. (2025).{" "}
             <span className="italic">
               Cognitive-affective maps extended logic: Proposing tools to
               collect and analyze attitudes and belief systems
             </span>
-            .<span className="italic">Behavior Research Methods, 57</span>(6),
-            174.{" "}
+            . <span className="italic">Behavior Research Methods, 57</span>
+            (6), 174.{" "}
             <a
               href="https://doi.org/10.3758/s13428-025-02699-y"
               className="text-blue-600 underline hover:text-blue-800"
@@ -174,16 +174,16 @@ export default function differentVersions() {
           </div>
         </div>
         <div className="mt-10">
-          <p className="text-base">
-            <span className="font-bold">Corresponding article:</span>
+          <p className="text-xl leading-relaxed">
+            <span className="font-bold">Corresponding article: </span>
             Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P.,
-            & Kiesel, A. (2025).
+            & Kiesel, A. (2025).{" "}
             <span className="italic">
               Cognitive-affective maps extended logic: Proposing tools to
               collect and analyze attitudes and belief systems
             </span>
-            .<span className="italic">Behavior Research Methods, 57</span>(6),
-            174.{" "}
+            . <span className="italic">Behavior Research Methods, 57</span>
+            (6), 174.{" "}
             <a
               href="https://doi.org/10.3758/s13428-025-02699-y"
               className="text-blue-600 underline hover:text-blue-800"
